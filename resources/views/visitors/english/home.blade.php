@@ -24,52 +24,14 @@
             </div>
         </div>
 
-        <?php
-            session()->put('identity', '2294');
-        ?>
-
-        <div class="row mt-3">
-            <div class="col-12">
-                <a href="{{ route('visitors.english.home') }}" class="btn btn-sm z-depth-2"><i class="fa fa-play"></i> Videos</a>
-                <a href="{{ route('visitors.english.homepdf') }}" class="btn btn-sm amber darken-4 white-text"><i class="fa fa-file"></i> PDF</a>
-            </div>
-        </div>
         <div class="row mt-3">
             
-            @foreach ($docs as $doc)
-                <div class="col-12 col-md-4 col-lg-3 mb-4">
+            @foreach ($english_files as $english_file)
+                <div class="col-12 col-md-4 mt-3 mb-4">
                     <div class="card z-depth-2">
-
-                        {{-- <a href="#" class="text-decoration-none uk-inline uk-dark d-none d-md-block">
-                            <img src="{{ URL::asset('assets/logos/allhowcomvideoweb.jpg') }}" alt="logo all-how" class="card-img-top">
-                            <div class="uk-overlay-default uk-position-cover">
-                                <div class="d-flex justify-content-center mt-5">
-                                    <i class="fa fa-play-circle fa-3x text-dark"></i>
-                                </div>
-                            </div>
-                        </a> --}}
-
-                        <a href="{{ $doc->pathShowDoc() }}" class="view d-none d-md-block">
-                            <img src="{{ URL::asset('assets/logos/allhowcomvideoweb.jpg') }}" alt="logo all-how" class="card-img-top img-fluid">
-                            <div class="mask flex-center waves-effect waves-light rgba-brown-strong">
-                                <i class="fa fa-play-circle fa-3x text-dark"></i>
-                            </div>
-                        </a>
-
-                        
-                        <a href="{{ $doc->pathShowDoc() }}" class="view d-block d-md-none">
-                            <img src="{{ URL::asset('assets/logos/allhowcomvideoweb.jpg') }}" alt="logo all-how" class="card-img-top img-fluid">
-                            <div class="mask flex-center waves-effect waves-light rgba-brown-strong">
-                                <i class="fa fa-play-circle fa-5x text-dark"></i>
-                            </div>
-                        </a>
-
-
-                        <div class="card-body">
-                            <p class="card-title font-weight-bold" title="{{ $doc->nom }}">{{ \Illuminate\Support\Str::substr($doc->nom, 0, 20) . "..." }}</p>
-                            <span class="float-right"><i class="fas fa-download"></i> 200</span>
-                            <a href="{{ $doc->pathShowDoc() }}" class="btn btn-block green darken-4 white-text d-none d-lg-block">download</a>
-                            <a href="{{ $doc->pathShowDoc() }}" class="btn btn-block green darken-4 white-text btn-sm d-block d-lg-none">download</a>
+                        <iframe height="200" src="https://www.youtube.com/embed/{{ \Illuminate\Support\Str::substr($english_file->link, 17) }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div class="uk-overlay uk-overlay-primary uk-position-bottom py-2">
+                            <p>{{ $english_file->title }}</p>
                         </div>
                     </div>
                 </div>
@@ -78,7 +40,7 @@
         </div>
         <div class="row mt-2 justify-content-center">
             <div class="col-12 col-md-3">
-                {{ $docs->links() }}
+                {{ $english_files->links() }}
             </div>
         </div>
     </div>

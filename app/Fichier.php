@@ -3,13 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Document;
+use App\Language;
 
 class Fichier extends Model
 {
+
     protected $guarded = [];
 
-    public function document() {
-        return $this->belongsTo(Document::class);
+    public function language() {
+        return $this->belongsTo(Language::class);
     }
 }

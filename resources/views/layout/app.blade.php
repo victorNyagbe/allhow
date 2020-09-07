@@ -39,16 +39,6 @@
       <span class="navbar-text white-text text-center d-block d-lg-none">
         All-how.com
       </span>
-
-      <span class=" navbar-text d-block d-lg-none">
-        <a href="{{ route('visitors.cartIndexDoc') }}">
-          <i class="fas white-text fa-shopping-cart">
-            @if (Cart::count() > 0)
-              <span class="badge badge-pill badge-light">0</span>
-            @endif
-          </i>
-        </a>
-      </span>
       
       <!-- Collapse button -->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
@@ -67,23 +57,18 @@
             </a>
           </li>
         </ul>
+        
         <span class="navbar-text white-text my-0 py-0 d-none d-lg-block">All-how.com</span>
+
         <ul class="navbar-nav ml-auto">
-
-            <li class="nav-item">
-              <a href="{{ route('visitors.cartIndexDoc') }}" class="nav-link d-none d-lg-block">
-                <i class="fas white-text fa-shopping-cart">
-                  @if (Cart::count() > 0)
-                    <span class="badge badge-pill badge-light">0</span>
-                  @endif
-                </i>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="login-seller" class="nav-link">Se connecter</a>
-            </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">A Propos</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Contact</a>
+          </li>
         </ul>
+
       </div>
       <!-- Collapsible content -->  
     </nav>
@@ -96,8 +81,6 @@
             @isset($englishzone)
               <a href="{{ route('visitors.home') }}" class="mr-auto btn btn-lg btn-primary">French</a>
             @endisset
-
-            <a href="{{ route('sellers.registrationForm') }}" class="ml-auto btn btn-lg btn-success">Devenir vendeur de contenu</a>
         </div>
     </div>
     <div class="d-block d-lg-none">
@@ -109,8 +92,6 @@
             @isset($englishzone)
               <a href="{{ route('visitors.home') }}" class="mr-auto btn btn-sm btn-primary">French</a>
             @endisset
-
-            <a href="{{ route('sellers.registrationForm') }}" class="ml-auto btn btn-sm btn-success">Devenir vendeur de contenu</a>
         </div>
     </div>
     
@@ -126,5 +107,7 @@
     <script src="{{ URL::asset('mdb/js/popper.js') }}"></script>
     <script src="{{ URL::asset('uikit/js/uikit.js') }}"></script>
     <script src="{{ URL::asset('uikit/js/uikit-icons.js') }}"></script>
+    
+    @yield('script')
 </body>
 </html>
