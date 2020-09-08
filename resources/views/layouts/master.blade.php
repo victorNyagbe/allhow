@@ -61,27 +61,47 @@
             <li class="nav-item">
               <a href="{{ route('fichiers.insertion') }}" class="nav-link"><i class="fa fa-cloud-download-alt"></i> Insérer une vidéo</a>
             </li>
-            <li class="nav-item">
-                <a href="{{ route('register') }}" class="nav-link"><i class="fa fa-user-secret"></i> Inscrire un admin</a>
-            </li>
+            @if (\Illuminate\Support\Facades\Auth::user()->role->name == 'superadmin')
+                <li class="nav-item">
+                  <a href="{{ route('register') }}" class="nav-link"><i class="fa fa-user-secret"></i> Inscrire un admin</a>
+                </li>
+            @endif
+            
           </ul>
-          <ul class="navbar-nav ml-auto">
-              <li class="nav-item dropdown">
-                <a href="" class="text-white" data-toggle="dropdown" id="adminProfileDropdown" aria-haspopup="true" aria-expanded="true">
-                    <i class="fas fa-user-circle fa-2x"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a href="#" class="dropdown-item">Profil</a>
-                    <a href="#" class="dropdown-item">Deconnexion</a>
-                </div>
-              </li>
-          </ul>
+
+          @auth
+              <ul class="navbar-nav ml-auto">
+                  <li class="nav-item dropdown">
+                    <a href="#!" class="text-white" data-toggle="dropdown" id="adminProfileDropdown" aria-haspopup="true" aria-expanded="true">
+                        <i class="fas fa-user-circle fa-2x"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a href="#" class="dropdown-item">Profil</a>
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                          document.getElementById('logout-form').submit();">
+                            {{ __('Deconnexion') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                        
+                    </div>
+                  </li>
+              </ul>
+          @endauth
+          
         </div>
         <!-- Collapsible content -->  
     </nav>
-    <div class="d-inline-flex mdb-color darken-2">
-        <p class="text-white px-4 py-2">Victor NYAGBE <small class="text-success" style="opacity: 0.8; font-size: 0.7rem;">connecté</small></p>
-    </div>
+    
+    @auth
+      <?php $user = Auth::user(); ?>
+      <div class="d-inline-flex mdb-color darken-2">
+        <p class="text-white px-4 py-2">{{ $user->name }} <small class="text-success" style="opacity: 0.8; font-size: 0.7rem;">connecté</small></p>
+      </div>
+    @endauth
 
       @yield('content')
     

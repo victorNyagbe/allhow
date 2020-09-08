@@ -17,9 +17,11 @@ class CreateFichiersTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('link');
+            $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('language_id');
             $table->timestamps();
 
+            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('language_id')->references('id')->on('languages');
         });
     }

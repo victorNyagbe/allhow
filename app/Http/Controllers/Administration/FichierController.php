@@ -6,6 +6,7 @@ use App\Fichier;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Language;
+use Illuminate\Support\Facades\Auth;
 
 class FichierController extends Controller
 {
@@ -59,7 +60,12 @@ class FichierController extends Controller
             'language_id.exists' => 'La langue sélectionnée est invalide'
         ]);
 
-        $video_created = Fichier::create($data);
+        $video_created = Fichier::create([
+            'title' => $request->get('title'),
+            'link' => $request->get('link'),
+            'language_id' => $request->get('language_id'),
+            'user_id' => Auth::id()
+        ]);
 
         return back()->with('success', 'La vidéo renseignée a été enregistrée avec succès');
     }

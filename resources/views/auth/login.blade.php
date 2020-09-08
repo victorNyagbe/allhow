@@ -5,7 +5,7 @@
     <div class="row justify-content-center mt-3">
         <div class="col-md-8">
             <div class="text-center">
-                <img src="{{ URL::asset('assets/logos/allhowcom1.jpg') }}" width="20%" height="20%" alt="" class="img-fluid rounded-circle">
+                <img src="{{ URL::asset('assets/logos/allhowcom1.jpg') }}" width="20%" height="20%" alt="" class="img-fluid rounded-circle mb-3">
             </div>
             <div class="card">
                 <div class="card-header text-center bg-danger text-white" style="font-size: 1.75rem;">{{ __('Connexion-Admin') }}</div>
