@@ -12,26 +12,43 @@
         </div>
         <div class="row mt-2 justify-content-center">
             <div class="col-12 col-md-8">
-                <form action="" method="post">
+                @if ($errors->any())
+                    <ul class="alert alert-danger list-unstyled alert-dismissible fade show mb-4" role="alert">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                        <button type="button" class="close" aria-label="close" data-dismiss="alert">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </ul> 
+                @endif
+                <form action="{{ route('visitors.search') }}" method="post">
+                    @csrf
                     <div class="input-group">
                         <div class="input-group-prepend">
-                          <span class="input-group-text"><i class="fas fa-search"
+                          <span class="input-group-text allhowpdf-color"><i class="fas fa-search white-text"
                               aria-hidden="true"></i></span>
                         </div>
-                        <input class="form-control" type="text" placeholder="Comment ......." aria-label="Search">
+                        <input class="form-control" type="text" placeholder="Comment ......." aria-label="Search" name="search_input">
                       </div>
                 </form>
             </div>
         </div>
 
         <div class="row mt-3">
+
+            <?php $video_link = ''; ?>
             
             @foreach ($french_files as $french_file)
                 <div class="col-12 col-md-4 mt-3 mb-4">
                     <div class="card z-depth-2">
                         <iframe height="200" src="https://www.youtube.com/embed/{{ \Illuminate\Support\Str::substr($french_file->link, 17) }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <div class="uk-overlay uk-overlay-primary uk-position-bottom py-2">
-                            <p>{{ $french_file->title }}</p>
+                        <?php $video_link = \Illuminate\Support\Str::substr($french_file->link, 17) ?>
+                        <div class="card-body py-2 allhowpdf-color">
+                            <p class="d-flex justify-content-between align-items-center white-text">
+                                <strong>{{ $french_file->title }}</strong>
+                                <span><i class="fas fa-eye"></i> {{ Alaouy\Youtube\Facades\Youtube::getVideoInfo("$video_link")->statistics->viewCount }}</span>
+                            </p>
                         </div>
                     </div>
                 </div>

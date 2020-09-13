@@ -171,6 +171,7 @@ class ComposerStaticInitcb980722a6703fd888610948fde633a3
         array (
             'Asm89\\Stack\\' => 12,
             'App\\' => 4,
+            'Alaouy\\Youtube\\' => 15,
         ),
     );
 
@@ -477,6 +478,10 @@ class ComposerStaticInitcb980722a6703fd888610948fde633a3
         array (
             0 => __DIR__ . '/../..' . '/app',
         ),
+        'Alaouy\\Youtube\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/alaouy/youtube/src',
+        ),
     );
 
     public static $prefixesPsr0 = array (
@@ -501,12 +506,18 @@ class ComposerStaticInitcb980722a6703fd888610948fde633a3
     );
 
     public static $classMap = array (
+        'Alaouy\\Youtube\\Facades\\Youtube' => __DIR__ . '/..' . '/alaouy/youtube/src/Facades/Youtube.php',
+        'Alaouy\\Youtube\\Rules\\ValidYoutubeVideo' => __DIR__ . '/..' . '/alaouy/youtube/src/Rules/ValidYoutubeVideo.php',
+        'Alaouy\\Youtube\\Youtube' => __DIR__ . '/..' . '/alaouy/youtube/src/Youtube.php',
+        'Alaouy\\Youtube\\YoutubeServiceProvider' => __DIR__ . '/..' . '/alaouy/youtube/src/YoutubeServiceProvider.php',
         'App\\Console\\Commands\\AddLanguageCommand' => __DIR__ . '/../..' . '/app/Console/Commands/AddLanguageCommand.php',
+        'App\\Console\\Commands\\addRoleCommand' => __DIR__ . '/../..' . '/app/Console/Commands/addRoleCommand.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Fichier' => __DIR__ . '/../..' . '/app/Fichier.php',
         'App\\Http\\Controllers\\Administration\\FichierController' => __DIR__ . '/../..' . '/app/Http/Controllers/Administration/FichierController.php',
         'App\\Http\\Controllers\\Administration\\MainController' => __DIR__ . '/../..' . '/app/Http/Controllers/Administration/MainController.php',
+        'App\\Http\\Controllers\\Administration\\RegisterAdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/Administration/RegisterAdminController.php',
         'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
@@ -517,9 +528,11 @@ class ComposerStaticInitcb980722a6703fd888610948fde633a3
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\LanguageController' => __DIR__ . '/../..' . '/app/Http/Controllers/Administration/LanguageController.php',
         'App\\Http\\Controllers\\MainController' => __DIR__ . '/../..' . '/app/Http/Controllers/MainController.php',
+        'App\\Http\\Controllers\\RoleController' => __DIR__ . '/../..' . '/app/Http/Controllers/RoleController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',
+        'App\\Http\\Middleware\\CheckSuperAdmin' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckSuperAdmin.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
@@ -527,6 +540,7 @@ class ComposerStaticInitcb980722a6703fd888610948fde633a3
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Language' => __DIR__ . '/../..' . '/app/Language.php',
+        'App\\Mail\\ContactUsMail' => __DIR__ . '/../..' . '/app/Mail/ContactUsMail.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',

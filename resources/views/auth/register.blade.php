@@ -13,7 +13,7 @@
                 <div class="card-header bg-danger text-white text-center" style="font-size: 1.75rem;">{{ __('Inscription administrateur') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('admin.auth.registration') }}">
                         @csrf
 
                         <div class="form-group row">

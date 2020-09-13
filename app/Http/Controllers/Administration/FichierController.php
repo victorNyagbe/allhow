@@ -89,7 +89,8 @@ class FichierController extends Controller
      */
     public function edit(Fichier $fichier)
     {
-        //
+        $languages = Language::all();
+        return view('administrations.fichiers.edit', compact('languages', 'fichier'));
     }
 
     /**
@@ -101,7 +102,28 @@ class FichierController extends Controller
      */
     public function update(Request $request, Fichier $fichier)
     {
-        //
+        $request->validate([
+            'title' => 'required|string',
+            'link' => 'required|active_url',
+            'language_id' => 'required|exists:languages,id'
+        ],
+        [
+            'title.required' => 'Veuillez renseigner le titre de la vidéo',
+            'title.string' => 'Le titre doit être une chaîne de caractères',
+            'link.required' => 'Veuillez renseigner le lien de la vidéo',
+            'link.active_url' => 'Le lien est incorrect',
+            'language_id.required' => 'Veuillez sélectionner une langue',
+            'language_id.exists' => 'La langue sélectionnée est invalide'
+        ]);
+
+        $fichier->update([
+            'title' => $request->get('title'),
+            'link' => $request->get('link'),
+            'language_id' => $request->get('language_id'),
+            'user_id' => Auth::id()
+        ]);
+
+        return back()->with('success', 'La vidéo a bien été éditée');
     }
 
     /**
@@ -112,6 +134,8 @@ class FichierController extends Controller
      */
     public function destroy(Fichier $fichier)
     {
-        //
+        $fichier->delete();
+
+        return back()->with('success', 'La vidéo a bien été supprimée');
     }
 }

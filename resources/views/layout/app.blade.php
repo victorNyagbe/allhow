@@ -9,16 +9,26 @@
     <link rel="stylesheet" href="{{ URL::asset('mdb/css/mdb.lite.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('fontawesome/css/all.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('fontawesome/css/fontawesome.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('fontawesome/css/brands.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('fontawesome/css/regular.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('fontawesome/css/solid.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('fontawesome/css/svg-with-js.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('fontawesome/css/v4-shims.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('uikit/css/uikit.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('uikit/css/uikit-rtl.css') }}">
     <title>all-how.com</title>
     <style>
         .allhowpdf-color {
-            background-color: #ff3c3c;
+            background-color: #fe6baf;
+        }
+
+        .btn-allhow {
+          background-color: #fdc72f;
         }
 
         body {
             font-family: ubuntu;
+            background-color: #f8fafc;
         }
 
         @font-face {
@@ -26,6 +36,7 @@
             src: url("{{ URL::asset('fonts/Ubuntu-Light.ttf') }}");
         }
     </style>
+    @yield('style')
 </head>
 <body>    
     <!--Navbar-->
@@ -33,7 +44,7 @@
     
       <!-- Navbar brand -->
       <a href="{{ route('visitors.home') }}" class="navbar-brand">
-        <img class="rounded-circle" src="{{ URL::asset('assets/logos/allhowcom1.jpg') }}" height="50px;" width="50px;">
+        <img class="rounded-circle" src="{{ URL::asset('assets/logos/2.jpg') }}" height="50px;" width="50px;">
       </a>
       
       <span class="navbar-text white-text text-center d-block d-lg-none">
@@ -62,10 +73,10 @@
 
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">A Propos</a>
+            <a class="nav-link" href="{{ route('visitors.about') }}">A Propos</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Contact</a>
+            <a href="{{ route('visitors.contact') }}" class="nav-link">Contact</a>
           </li>
         </ul>
 
@@ -75,22 +86,22 @@
     <div class="d-none d-lg-block">
         <div class="d-flex">
             @isset($frenchzone)
-              <a href="{{ route('visitors.english.home') }}" class="mr-auto btn btn-lg btn-primary">ENGLISH</a>
+              <a href="{{ route('visitors.english.home') }}" class="mr-auto btn btn-lg btn-allhow white-text">ENGLISH</a>
             @endisset
             
             @isset($englishzone)
-              <a href="{{ route('visitors.home') }}" class="mr-auto btn btn-lg btn-primary">French</a>
+              <a href="{{ route('visitors.home') }}" class="mr-auto btn btn-lg btn-allhow white-text">French</a>
             @endisset
         </div>
     </div>
     <div class="d-block d-lg-none">
         <div class="d-flex">
             @isset($frenchzone)
-              <a href="{{ route('visitors.english.home') }}" class="mr-auto btn btn-sm btn-primary">ENGLISH</a>
+              <a href="{{ route('visitors.english.home') }}" class="mr-auto btn btn-sm btn-allhow white-text">ENGLISH</a>
             @endisset
 
             @isset($englishzone)
-              <a href="{{ route('visitors.home') }}" class="mr-auto btn btn-sm btn-primary">French</a>
+              <a href="{{ route('visitors.home') }}" class="mr-auto btn btn-sm btn-alhow white-text">French</a>
             @endisset
         </div>
     </div>
