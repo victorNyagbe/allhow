@@ -24,7 +24,7 @@ Route::post('contact', 'MainController@contactUs')->name('visitors.contactUs');
 
 Route::get('a-propos', 'MainController@about')->name('visitors.about');
 
-Route::post('rechercher-fichiers', 'MainController@search')->name('visitors.search');
+Route::get('rechercher-fichiers', 'MainController@search')->name('visitors.search');
 
 Route::group(['prefix' => 'admin'], function () {
 

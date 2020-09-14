@@ -22,8 +22,7 @@
                         </button>
                     </ul> 
                 @endif
-                <form action="{{ route('visitors.search') }}" method="post">
-                    @csrf
+                <form action="{{ route('visitors.search') }}">
                     <div class="input-group">
                         <div class="input-group-prepend">
                           <span class="input-group-text allhowpdf-color"><i class="fas fa-search white-text"
