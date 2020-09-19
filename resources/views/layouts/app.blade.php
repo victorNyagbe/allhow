@@ -15,16 +15,27 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ URL::asset('assets/logos/1.ico') }}" type="image/x-icon">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <style>
+        .allhow-color {
+            background-color: #fe6baf;
+        }
+
+        .btn-allhow {
+          background-color: #fdc72f;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-danger shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark allhow-color shadow-sm">
             <div class="container">
-                <a class="navbar-brand text-white" href="{{ url('/') }}">
-                    <img class="rounded-circle" src="{{ URL::asset('assets/logos/allhowcom1.jpg') }}" height="50px;" width="50px;">
+                <a class="navbar-brand text-white" href="{{ url('/admin/dashboard') }}">
+                    <img class="rounded-circle" src="{{ URL::asset('assets/logos/2.jpg') }}" height="50px;" width="50px;">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -56,10 +67,11 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item text-white" href="{{ route('logout') }}"
+                                    <a href="#" class="dropdown-item">Profil</a>
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('Deconnexion') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

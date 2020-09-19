@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{{ URL::asset('fontawesome/css/v4-shims.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('uikit/css/uikit.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('uikit/css/uikit-rtl.css') }}">
+    <link rel="shortcut icon" href="{{ URL::asset('assets/logos/1.ico') }}" type="image/x-icon">
     <title>all-how.com</title>
     <style>
         .allhowpdf-color {

@@ -5,10 +5,10 @@
     <div class="row justify-content-center mt-3">
         <div class="col-md-8">
             <div class="text-center">
-                <img src="{{ URL::asset('assets/logos/allhowcom1.jpg') }}" width="20%" height="20%" alt="" class="img-fluid rounded-circle mb-3">
+                <img src="{{ URL::asset('assets/logos/2.jpg') }}" width="20%" height="20%" alt="" class="img-fluid rounded-circle mb-3">
             </div>
             <div class="card">
-                <div class="card-header text-center bg-danger text-white" style="font-size: 1.75rem;">{{ __('Connexion-Admin') }}</div>
+                <div class="card-header text-center allhow-color text-white" style="font-size: 1.75rem;">{{ __('Connexion-Admin') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -56,7 +56,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-allhow text-white">
                                     {{ __('Connexion') }}
                                 </button>
 

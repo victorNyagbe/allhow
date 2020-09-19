@@ -31,7 +31,7 @@
                             <form action="{{ route('fichiers.destroy', $video->id) }}" method="post">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
+                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Voulez-vous vraiment supprimer la vidéo {{ $video->title }} ?')">Supprimer</button>
                             </form>
                         </div>
                     </div>

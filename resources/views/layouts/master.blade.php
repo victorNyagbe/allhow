@@ -10,8 +10,17 @@
     <link rel="stylesheet" href="{{ URL::asset('fontawesome/css/all.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('fontawesome/css/brands.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('fontawesome/css/fontawesome.css') }}">
+    <link rel="shortcut icon" href="{{ URL::asset('assets/logos/1.ico') }}" type="image/x-icon">
     <title>AllhowPDF | Admin</title>
     <style>
+        .allhow-color {
+            background-color: #fe6baf;
+        }
+
+        .btn-allhow {
+          background-color: #fdc72f;
+        }
+
         body {
             font-family: ubuntu, sans-serif;
         }
@@ -25,15 +34,15 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark red">
+    <nav class="navbar navbar-expand-lg navbar-dark allhow-color">
     
         <!-- Navbar brand -->
-        <a href="" class="navbar-brand">
-          <img class="rounded-circle" src="{{ URL::asset('assets/logos/allhowcom1.jpg') }}" height="50px;" width="50px;">
+        <a href="{{ route('administration.dashboard') }}" class="navbar-brand">
+          <img class="rounded-circle" src="{{ URL::asset('assets/logos/2.jpg') }}" height="50px;" width="50px;">
         </a>
         
         <span class="navbar-text white-text d-block d-lg-none">
-          allhowpdf.com
+          all-how.com
         </span>
         
         <!-- Collapse button -->
@@ -53,7 +62,7 @@
               </a>
             </li>
             <li class="nav-item">
-                <a href="" class="nav-link"><i class="fas fa-home"></i> Accueil</a>
+                <a href="{{ route('visitors.home') }}" class="nav-link"><i class="fas fa-home"></i> Accueil</a>
             </li>
             <li class="nav-item">
                 <a href="{{ route('fichiers.index') }}" class="nav-link"><i class="fas fa-play"></i> Videos</a>

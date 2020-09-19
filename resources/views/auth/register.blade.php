@@ -6,11 +6,11 @@
         <div class="col-md-8">
 
             <div class="text-center">
-                <img src="{{ URL::asset('assets/logos/allhowcom1.jpg') }}" width="20%" height="20%" alt="" class="img-fluid rounded-circle">
+                <img src="{{ URL::asset('assets/logos/2.jpg') }}" width="20%" height="20%" alt="" class="img-fluid rounded-circle">
             </div>
 
             <div class="card">
-                <div class="card-header bg-danger text-white text-center" style="font-size: 1.75rem;">{{ __('Inscription administrateur') }}</div>
+                <div class="card-header allhow-color text-white text-center" style="font-size: 1.75rem;">{{ __('Inscription administrateur') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('admin.auth.registration') }}">
@@ -87,7 +87,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-allhow">
                                     {{ __('Inscrire') }}
                                 </button>
                             </div>
